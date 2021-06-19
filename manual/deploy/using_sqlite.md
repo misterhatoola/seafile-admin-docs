@@ -2,17 +2,8 @@
 
 ## Download binary package
 
-Visit our [download page](http://www.seafile.com/en/download/#server),  download the latest server package.
+Visit our [download page](http://www.seafile.com/en/download/#server),  download the latest server package. Only x86_64 (64 bit) packages are available since seafile 6.1.0.
 
-Choose one of:
-- Generic Linux
-- Windows
-- Server for Raspberry Pi
-
-```
-#check if your system is x86 (32bit) or x86_64 (64 bit)
-uname -m
-```
 Click the tarball link and save it.
 
 
@@ -59,7 +50,7 @@ Benefits of this layout are
 
 The Seafile server package requires the following packages have been installed in your system
 
-- python 2.7
+- python 3 (since seafile 7.1.0)
 - python-setuptools
 - python-ldap
 - python-urllib3
@@ -67,19 +58,10 @@ The Seafile server package requires the following packages have been installed i
 - sqlite3
 
 ```
-#on Debian/Ubuntu 14.04 server
-apt-get update
-apt-get install python2.7 libpython2.7 python-setuptools python-ldap python-urllib3 sqlite3 python-requests
-```
-
-```
-# on Ubuntu 16.04 server
-# As the default python binary on Ubuntu 16.04 server is python 3, we need to install python (python 2) first.
-apt-get update
-apt-get install python
-apt-get install python2.7 libpython2.7 python-setuptools python-ldap python-urllib3 ffmpeg python-pip sqlite3 python-requests
-pip install Pillow==4.3.0
-pip install moviepy  # used in movie file thumbnails
+#on Debian/Ubuntu 14.04 server onwards
+sudo apt-get update
+sudo apt-get install python3 python3-setuptools python3-ldap python3-urllib3 sqlite3 python3-requests pip libmemcached-dev ffmpeg -y
+pip3 install pylibmc Pillow pylibmc captcha jinja2 sqlalchemy django-pylibmc django-simple-captcha moviepy
 ```
 
 ```
